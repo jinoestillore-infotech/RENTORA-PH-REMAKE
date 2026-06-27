@@ -1,0 +1,96 @@
+rentora/
+│
+├── frontend/
+│   │
+│   ├── assets/
+│   │   ├── css/
+│   │   │   └── style.css
+│   │   │
+│   │   ├── js/
+│   │   │   └── app.js
+│   │   │
+│   │   ├── images/
+│   │   │
+│   │   ├── uploads/
+│   │   │   ├── profile/
+│   │   │   ├── boarding-houses/
+│   │   │   ├── rooms/
+│   │   │   └── verification/
+│   │   │
+│   │   └── vendor/
+│   │       └── bootstrap/
+│   │
+│   ├── views/
+│   │   │
+│   │   ├── layouts/
+│   │   │   ├── header.php
+│   │   │   ├── navbar.php
+│   │   │   ├── footer.php
+│   │   │
+│   │   ├── auth/
+│   │   ├── admin/
+│   │   ├── owner/
+│   │   ├── tenant/
+│   │   ├── landing/
+│   │   ├── errors/
+│   │   └── components/
+│   │
+│   └── index.php
+│
+├── backend/
+│   │
+│   ├── config/
+│   │   ├── config.php
+│   │   ├── database.php
+│   │   └── constants.php
+│   │
+│   ├── controllers/
+│   │   ├── AuthController.php
+│   │   ├── AdminController.php
+│   │   ├── OwnerController.php
+│   │   ├── TenantController.php
+│   │   ├── BoardingHouseController.php
+│   │   ├── RoomController.php
+│   │   ├── PaymentController.php
+│   │   └── MaintenanceController.php
+│   │
+│   ├── models/
+│   │   ├── User.php
+│   │   ├── BoardingHouse.php
+│   │   ├── Room.php
+│   │   ├── Tenant.php
+│   │   ├── Application.php
+│   │   ├── Payment.php
+│   │   ├── Complaint.php
+│   │   └── MaintenanceRequest.php
+│   │
+│   ├── routes/
+│   │   ├── web.php
+│   │   ├── auth.php
+│   │   ├── admin.php
+│   │   ├── owner.php
+│   │   └── tenant.php
+│   │
+│   ├── classes/
+│   │   ├── Database.php
+│   │   ├── Router.php
+│   │   ├── Session.php
+│   │   ├── Auth.php
+│   │   ├── Validator.php
+│   │   ├── FileUpload.php
+│   │   ├── CSRF.php
+│   │   └── Response.php
+│   │
+│   ├── middleware/
+│   │   ├── AuthMiddleware.php
+│   │   ├── AdminMiddleware.php
+│   │   ├── OwnerMiddleware.php
+│   │   └── TenantMiddleware.php
+│   │
+│
+├── database/
+│   └── rentora.sql
+│
+├── .htaccess
+├── composer.json (optional)
+└── README.md

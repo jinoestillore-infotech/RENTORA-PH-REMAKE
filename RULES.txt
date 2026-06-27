@@ -2,19 +2,9 @@ Development Philosophy
 
 Always follow these principles.
 
-Keep It Simple
-Choose the simplest secure solution.
-Avoid over-engineering.
-Avoid unnecessary abstractions.
-Avoid unnecessary helper functions.
-Avoid unnecessary classes.
-Avoid unnecessary files.
-Avoid unnecessary complexity.
-Avoid premature optimization.
+Keep It Simple. Choose the simplest secure solution. Avoid over-engineering. Avoid unnecessary abstractions.Avoid unnecessary helper functions. Avoid unnecessary classes. Avoid unnecessary complexity. Avoid premature optimization.
 
-Backend First
-
-Business logic should be implemented in PHP whenever practical.
+Backend First. Business logic should be implemented in PHP whenever practical.
 
 Prefer:
 
@@ -95,19 +85,9 @@ Validation that must exist on the server
 
 Use JavaScript only for improving user experience, never for enforcing security.
 
-Code Quality
+Code Quality. Every function should have a clear purpose. Every file should have a reason to exist. Every variable should have a meaningful name.
 
-Every function should have a clear purpose.
-
-Every file should have a reason to exist.
-
-Every variable should have a meaningful name.
-
-Keep functions short and readable.
-
-Avoid duplicate code.
-
-Comment only when the code is not self-explanatory.
+Keep functions short and readable. Avoid duplicate code. Comment only when the code is not self-explanatory.
 
 
 SUMMARY:

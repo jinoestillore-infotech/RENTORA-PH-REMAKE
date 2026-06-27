@@ -1,65 +1,27 @@
 <?php
 /**
- * File Location: index.php
- * File Name: index.php
- * Description: The primary bootstrapper and entry point of RENTORA PH. Configures custom autoloading, establishes session safeguards, and delegates routing.
+ * File: /index.php
+ * Description: Front Controller that bootstraps Rentora PH and handles all incoming requests.
  */
 
-// 1. Register PSR-4 Autoloader mapping "App\" namespace to "backend/" directory
-spl_autoload_register(function ($class) {
-    $prefix = 'App\\';
-    $base_dir = __DIR__ . '/backend/';
+declare(strict_types=1);
 
-    $len = strlen($prefix);
-    if (strncmp($prefix, $class, $len) !== 0) {
-        return;
-    }
+session_start();
 
-    $relative_class = substr($class, $len);
-    $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
+// Load Config
+require_once __DIR__ . '/backend/config/config.php';
 
-    if (file_exists($file)) {
-        require_once $file;
-    }
-});
+// Auto-register clean router/classes
+require_once __DIR__ . '/backend/classes/Router.php';
+require_once __DIR__ . '/backend/controllers/HomeController.php';
+require_once __DIR__ . '/backend/controllers/RegistrationController.php';
 
-use App\Classes\Session;
-use App\Classes\Router;
-use App\Classes\CSRF;
-
-// 2. Start secure session
-Session::start();
-
-// 3. Clean and resolve URLs for subfolder installations (e.g., localhost/rentora-ph/)
-$scriptName = $_SERVER['SCRIPT_NAME'] ?? ''; 
-$requestUri = $_SERVER['REQUEST_URI'] ?? ''; 
-
-$basePath = str_replace('\\', '/', dirname($scriptName)); 
-$baseUrl = $basePath === '/' ? '' : $basePath;
-
-// Define globally accessible BASE_URL constant for safe views routing
-define('BASE_URL', $baseUrl);
-
-if ($basePath !== '/' && strpos($requestUri, $basePath) === 0) {
-    // Strip "/rentora-ph" prefix so the Router parses virtual paths like "/" or "/register" cleanly
-    $_SERVER['REQUEST_URI'] = substr($requestUri, strlen($basePath));
-}
-
-// 4. Initialize Router
+// Initialize Router
 $router = new Router();
 
-// 5. Define Routing Actions
+// Load Web Routes
+require_once __DIR__ . '/backend/routes/web.php';
 
-// Root route redirects users directly to /landing
-$router->get('/', function() {
-    header('Location: ' . BASE_URL . '/landing');
-    exit;
-});
-
-// Landing page route
-$router->get('/landing', function() {
-    require_once __DIR__ . '/frontend/views/landing/index.php';
-});
-
-// Fire routing resolution engine
-$router->resolve();
+// Dispatch routing based on URL path query parameter provided by .htaccess
+$routePath = $_GET['route'] ?? '';
+$router->dispatch($routePath);
