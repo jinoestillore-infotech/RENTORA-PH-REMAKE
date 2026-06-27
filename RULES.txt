@@ -1,0 +1,161 @@
+Development Philosophy
+
+Always follow these principles.
+
+Keep It Simple
+Choose the simplest secure solution.
+Avoid over-engineering.
+Avoid unnecessary abstractions.
+Avoid unnecessary helper functions.
+Avoid unnecessary classes.
+Avoid unnecessary files.
+Avoid unnecessary complexity.
+Avoid premature optimization.
+
+Backend First
+
+Business logic should be implemented in PHP whenever practical.
+
+Prefer:
+
+PHP
+MySQL
+HTML
+Bootstrap
+
+Avoid implementing business logic in JavaScript unless it requires client-side interaction.
+
+Examples where JavaScript is appropriate:
+
+Bootstrap components (Modal, Toast, Dropdown, Collapse, Offcanvas)
+Image preview
+Password visibility toggle
+AJAX when explicitly requested
+Dynamic user interface interactions
+
+Do not move validation, authentication, authorization, or business rules into JavaScript when they can be securely handled by PHP.
+
+Bootstrap First
+
+Use Bootstrap 5 before writing custom CSS.
+
+Priority:
+
+Bootstrap utilities
+Bootstrap components
+Bootstrap grid
+Bootstrap spacing utilities
+Bootstrap colors
+Custom CSS only when Bootstrap cannot achieve the desired result.
+
+Avoid creating CSS for things Bootstrap already provides.
+
+Examples:
+
+Use:
+
+mt-3
+d-flex
+gap-2
+rounded
+shadow-sm
+container
+row
+col
+card
+
+instead of writing custom CSS.
+
+CSS Rules
+
+Only write custom CSS when necessary.
+
+Do not:
+
+Override Bootstrap unnecessarily.
+Create long CSS files.
+Use excessive nested selectors.
+Duplicate Bootstrap styles.
+
+Prefer reusable utility classes over page-specific styling.
+
+JavaScript Rules
+
+Use JavaScript only when PHP or Bootstrap cannot accomplish the task.
+
+Avoid JavaScript for:
+
+Form processing
+Authentication
+Authorization
+CRUD operations
+Flash messages
+Redirects
+Validation that must exist on the server
+
+Use JavaScript only for improving user experience, never for enforcing security.
+
+Code Quality
+
+Every function should have a clear purpose.
+
+Every file should have a reason to exist.
+
+Every variable should have a meaningful name.
+
+Keep functions short and readable.
+
+Avoid duplicate code.
+
+Comment only when the code is not self-explanatory.
+
+
+SUMMARY:
+
+When my prompt starts with CREATE or BUILD, you should:
+
+Fully implement the requested feature.
+Provide complete, working, production-ready code.
+Integrate the feature into the existing project instead of redesigning it.
+Create only the files that are absolutely necessary.
+Do not generate placeholder code unless I explicitly request it.
+Do not leave TODO comments for required functionality.
+Keep the implementation simple, secure, readable, and maintainable.
+Follow the existing project structure and coding style.
+
+When my prompt starts with UPDATE, you should:
+
+Modify only the code related to my request.
+Do not rewrite entire files unless absolutely necessary.
+Preserve existing functionality.
+Preserve variable names, folder structure, and coding style whenever possible.
+Make the smallest possible change that satisfies the requirement.
+Do not refactor unrelated code.
+
+For every CREATE, BUILD, or UPDATE request, always follow these rules:
+
+Prioritize simplicity over scalability.
+Never sacrifice security for simplicity.
+Avoid over-engineering.
+Avoid unnecessary abstraction.
+Avoid unnecessary helper functions, classes, files, or design patterns.
+Reuse existing code whenever possible.
+If a solution can be implemented in fewer lines without reducing readability or security, choose the simpler implementation.
+Follow the KISS (Keep It Simple, Stupid) and YAGNI (You Aren't Gonna Need It) principles.
+
+Frontend Rules:
+
+Use Bootstrap 5 as the primary styling framework.
+Prefer Bootstrap utilities and components before writing custom CSS.
+Only write custom CSS when Bootstrap cannot reasonably achieve the desired result.
+Keep custom CSS minimal, organized, and reusable.
+Do not override Bootstrap unnecessarily.
+Keep the interface clean, responsive, and consistent.
+
+Backend Rules:
+
+Prefer implementing business logic in PHP rather than JavaScript.
+Use JavaScript only when it is required for client-side interactions or improving user experience.
+Do not implement authentication, authorization, validation, or core business logic solely in JavaScript.
+Always use server-side validation.
+Use prepared statements, password hashing, session authentication, authorization checks, CSRF protection, and secure file upload validation where applicable.
