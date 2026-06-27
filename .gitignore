@@ -1,0 +1,28 @@
+# File Location: .gitignore
+# File Name: .gitignore
+# Description: Specifies intentionally untracked files and folders that Git should ignore.
+
+# Environment configuration variables
+.env
+
+# System Database Schema Files (Excluding SQL source templates)
+database/*.db
+database/*.sqlite
+
+# Ignore sensitive developer tools or dependencies
+composer.lock
+vendor/
+node_modules/
+.DS_Store
+
+# Ignore real user uploads (keep empty folders intact if necessary)
+frontend/assets/uploads/profile/*
+frontend/assets/uploads/boarding-houses/*
+frontend/assets/uploads/rooms/*
+frontend/assets/uploads/verification/*
+
+# Keep upload directories but ignore their contents
+!frontend/assets/uploads/profile/.gitkeep
+!frontend/assets/uploads/boarding-houses/.gitkeep
+!frontend/assets/uploads/rooms/.gitkeep
+!frontend/assets/uploads/verification/.gitkeep

@@ -1,0 +1,26 @@
+# File Location: .htaccess
+# File Name: .htaccess
+# Description: Custom URL rewriting rules to route all virtual paths cleanly to index.php and enforce directory security.
+
+# Disable directory indexing for public folders
+Options -Indexes
+
+# Prevent directory traversal and protect sensitive configuration files
+<FilesMatch "^\.env|rentora\.sql|\.gitignore|composer\.json|README\.md$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Enable URL Rewriting Engine
+RewriteEngine On
+
+# Set the Base Path relative to the new web root folder (wrapped in quotes for the space)
+RewriteBase "/RENTORA-REMAKE/"
+
+# Allow existing static files, directories, and assets to load directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Route all other virtual URIs cleanly through our main entry bootstrap file
+RewriteRule ^ index.php [L]
